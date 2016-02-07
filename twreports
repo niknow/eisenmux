@@ -1,0 +1,45 @@
+# Eisenmux
+# Copyright (C) 2016  Nikolai Nowaczyk
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+
+#Quadrant 1: urgent and important (pri:h, due.before:1w)
+report.q1.description=urgent and important
+report.q1.columns=id,description,due,project,tags
+report.q1.labels=ID,DESCRIPTION,DUE,PROJECT,TAGS
+report.q1.sort=priority-,due+,project+,tags+
+report.q1.filter=status:pending limit:page pri:H due.before:today+1w -BLOCKED
+
+#Quadrant 2: important, but not urgent (pri:h, due.after:1w or due emptry)
+report.q2.description=important, but not urgent
+report.q2.columns=id,description,due,project,tags
+report.q2.labels=ID,DESCRIPTION,DUE,PROJECT,TAGS
+report.q2.sort=priority-,due+,project+,tags+
+report.q2.filter=status:pending limit:page pri:H and ( due: or due.after:today+1w )
+
+#Quadrant 3: urgent, but not important (pri:<=m, due.before:1w)
+report.q3.description=urgent, but not important
+report.q3.columns=id,description,due,project,tags
+report.q3.labels=ID,DESCRIPTION,DUE,PROJECT,TAGS
+report.q3.sort=priority-,due+,project+,tags+
+report.q3.filter=status:pending limit:page pri.not:H due.before:today+1w
+
+#Quadrant 4: not urgent and not important (pri:<=m, due.after:1w)
+report.q4.description=not urgent and not important
+report.q4.columns=id,description,due,project,tags
+report.q4.labels=ID,DESCRIPTION,DUE,PROJECT,TAGS
+report.q4.sort=priority-,due+,project+,tags+
+report.q4.filter=status:pending limit:page pri.not:H and ( due.after:today+1w or due: )
