@@ -17,7 +17,7 @@ A bash script creating an [Eisenhower Matrix](https://en.wikipedia.org/wiki/Time
     ./eisenhower.sh
 
 # Recommendation
-Add an alias to your `.bashrc`, for isntance:
+Add an alias to your `.bashrc`, for instance:
 
     alias te='[path to your script]/eisenhower.sh'
 
